@@ -19,7 +19,7 @@
 				<img class="img-fluid img-fluid m-l-30" src="{{ asset('img/logo-white.png') }}" width="130" alt="Theme-Logo" />
 			</a>
 			<a class="mobile-options waves-effect waves-light">
-			<i class="ti-more"></i>
+				<i class="ti-more"></i>
 			</a>
 		</div>
 		<div class="navbar-container container-fluid">
@@ -34,7 +34,7 @@
 				</li>
 			</ul>
 			<ul class="nav-right">
-				<li class="header-notification">
+				{{-- <li class="header-notification">
 					<a href="#!" class="waves-effect waves-light">
 					<i class="ti-bell"></i>
 					<span class="badge bg-c-red"></span>
@@ -75,32 +75,22 @@
 							</div>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 				<li class="user-profile header-notification">
 					<a href="#!" class="waves-effect waves-light">
-					<img src="{{ asset('backend/img/user.svg') }}" class="img-radius" alt="User-Profile-Image">
-					<span>John Doe</span>
-					<i class="ti-angle-down"></i>
+						<img src="{{ asset('backend/img/user.svg') }}" class="img-radius" alt="User-Profile-Image">
+						<span>{{ Auth::user()->name }}</span>
+						<i class="ti-angle-down"></i>
 					</a>
 					<ul class="show-notification profile-notification">
 						<li class="waves-effect waves-light">
-							<a href="#!">
-							<i class="ti-settings"></i> Settings
+							<a href="{{ route('user_profile') }}">
+								<i class="ti-user"></i> Profil
 							</a>
 						</li>
 						<li class="waves-effect waves-light">
-							<a href="user-profile.html">
-							<i class="ti-user"></i> Profile
-							</a>
-						</li>
-						<li class="waves-effect waves-light">
-							<a href="email-inbox.html">
-							<i class="ti-email"></i> My Messages
-							</a>
-						</li>
-						<li class="waves-effect waves-light">
-							<a href="auth-lock-screen.html">
-							<i class="ti-lock"></i> Lock Screen
+							<a href="{{ route('user_change_password') }}">
+								<i class="ti-key"></i> Kata Sandi
 							</a>
 						</li>
 						<li class="waves-effect waves-light">
@@ -109,7 +99,6 @@
                                          document.getElementById('logout-form').submit();">
                                 <i class="ti-layout-sidebar-left"></i> Logout
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
