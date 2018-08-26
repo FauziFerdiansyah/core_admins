@@ -98,7 +98,8 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
-
+    // Custom validation for username
+    'valid_username'       => 'Username tidak boleh diisi selain huruf, angka dan garis bawah.',
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
