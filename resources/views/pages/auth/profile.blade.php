@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('title_web')Profil User @endsection
-@section('title_page')Users @endsection
+@section('title_page')User @endsection
+@section('sub_title_page')Menampilkan data user yang login @endsection
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
         <a href="{{ route('home') }}"> <i class="fa fa-home"></i> </a>
     </li>
     <li class="breadcrumb-item">User</li>
+    <li class="breadcrumb-item">Profil</li>
 @endsection
 
 @section('content')
@@ -16,8 +18,8 @@
             <div class="card table-card">
                 <div class="card-header">
                     <h5 class="card-header-text">Data User</h5>
-                    <a href="{{ route('user_profile_edit') }}" class="btn btn-sm btn-primary btn btn-sm btn-primary waves-effect waves-light f-right">
-                            <i class="ti-pencil-alt"></i> Edit</a>
+                    <a href="{{ route('auth_profile_edit') }}" class="btn btn-sm btn-primary btn btn-sm btn-primary waves-effect waves-light f-right">
+                            <i class="ti-pencil-alt"></i> Edit Data</a>
                 </div>
                 <div class="card-block">
                     <div class="general-info">
@@ -40,8 +42,8 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Kata Sandi</th>
-                                                <td><a href="{{ route('user_change_password') }}" class="btn btn-primary btn-sm">
-                                                    Ganti Kata Sandi    
+                                                <td><a href="{{ route('auth_change_password') }}" class="btn btn-primary btn-sm">
+                                                    <i class="ti-key"></i> Ganti Kata Sandi    
                                                 </a></td>
                                             </tr>
                                         </tbody>

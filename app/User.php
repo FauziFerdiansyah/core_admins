@@ -30,7 +30,7 @@ class User extends Authenticatable
     public static $rules = [
         'name' => 'required|max:255',
         'email' => 'required|email|max:140|unique:users,email',
-        'username' => 'required|max:100|unique:users,username',
+        'username' => 'required|valid_username|max:100|unique:users,username',
         'password' => 'required|min:6|confirmed',
     ];
     
@@ -39,7 +39,7 @@ class User extends Authenticatable
         return array(
             'name' => 'required|max:255',
             'email' => 'required|email|max:140|unique:users,email,'.$id,
-            'username' => 'required|max:100|unique:users,username,'.$id
+            'username' => 'required|valid_username|max:100|unique:users,username,'.$id
         );
     }
 

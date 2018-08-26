@@ -84,12 +84,12 @@
 					</a>
 					<ul class="show-notification profile-notification">
 						<li class="waves-effect waves-light">
-							<a href="{{ route('user_profile') }}">
+							<a href="{{ route('auth_profile') }}">
 								<i class="ti-user"></i> Profil
 							</a>
 						</li>
 						<li class="waves-effect waves-light">
-							<a href="{{ route('user_change_password') }}">
+							<a href="{{ route('auth_change_password') }}">
 								<i class="ti-key"></i> Kata Sandi
 							</a>
 						</li>

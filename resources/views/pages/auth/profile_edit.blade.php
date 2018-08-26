@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
 @section('title_web')Edit Profil User @endsection
-@section('title_page')Users @endsection
+@section('title_page')User @endsection
+@section('sub_title_page')Formulir ubah data user @endsection
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
         <a href="{{ route('home') }}"> <i class="fa fa-home"></i> </a>
     </li>
     <li class="breadcrumb-item">
-        <a href="{{ route('user_profile') }}">User</a>
+        <a href="{{ route('auth_profile') }}">User</a>
     </li>
-    <li class="breadcrumb-item">Profil</li>
+    <li class="breadcrumb-item">Ubah Profil</li>
 @endsection
 
 @section('content')
@@ -18,12 +19,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-header-text">Data User</h5>
-                    <a href="{{ route('user_profile') }}" class="btn btn-sm btn-primary btn btn-sm btn-primary waves-effect waves-light f-right">
-                        <i class="ti-angle-left"></i> Kembali</a>
+                    <h5 class="card-header-text">Formulir Ubah Profil</h5>
+                    <a href="{{ route('auth_profile') }}" class="btn btn-sm btn-primary btn btn-sm btn-primary waves-effect waves-light f-right">
+                        <i class="ti-back-left"></i> Kembali</a>
                 </div>
                 <div class="card-block">
-                    <form action="{{ route('user_profile_update') }}" method="POST" class="form-horizontal">
+                    <form action="{{ route('auth_profile_update') }}" method="POST" class="form-horizontal">
                         <!-- AREA NOTIF -->
                         @include('common.notif')
                 
@@ -64,12 +65,13 @@
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
+                                <div class="text-muted small mt-1"><i class="fa fa-info-circle fa-fw"></i> Kolom Hanya boleh diisi <b>tulisan</b>, <b>angka</b> dan <b>garis bawah</b>. contoh : <b>Admin_ke2</b></div>                                
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-sm btn-primary"><i class="ti-save"></i> Ubah</button>
                             </div>
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">

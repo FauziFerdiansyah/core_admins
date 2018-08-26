@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::group(['prefix' => 'users'], function(){
+    Route::group(['prefix' => 'auth'], function(){
         // Route::get('/datatables/users', [
         //     'uses' 	=> 'UsersController@getUserDatatable',
         //     'as'	=> 'datatables.users'
@@ -71,23 +71,23 @@ Route::group(['middleware' => ['auth']], function () {
         // ]);
         Route::get('/profile',[
             'uses'	=> 'UsersController@profile',
-            'as'	=> 'user_profile'
+            'as'	=> 'auth_profile'
         ]);
         Route::get('/profile_edit',[
             'uses'	=> 'UsersController@profile_edit',
-            'as'	=> 'user_profile_edit'
+            'as'	=> 'auth_profile_edit'
         ]);
         Route::post('/profile_edit',[
             'uses'	=> 'UsersController@profile_edit',
-            'as'	=> 'user_profile_update'
+            'as'	=> 'auth_profile_update'
         ]);
         Route::get('/change_password',[
             'uses'	=> 'UsersController@change_password',
-            'as'	=> 'user_change_password'
+            'as'	=> 'auth_change_password'
         ]);
         Route::post('/change_password',[
             'uses'	=> 'UsersController@change_password',
-            'as'	=> 'user_change_password_update'
+            'as'	=> 'auth_change_password_update'
         ]);
 
     });

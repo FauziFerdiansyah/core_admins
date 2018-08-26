@@ -19,7 +19,7 @@ class UsersController extends Controller
 
     public function profile(Request $request)
     {
-        return view('pages.users.profile');
+        return view('pages.auth.profile');
     }
 
     public function profile_edit(Request $request)
@@ -47,17 +47,17 @@ class UsersController extends Controller
                             'updated_by'    => Auth::user()->id
                         ]);
                 return redirect()
-                    ->route('user_profile_edit')
-                    ->with('alt_green', 'Data has been saved.');
+                    ->route('auth_profile_edit')
+                    ->with('alt_green', 'Data berhasil diubah.');
 
             }else{
                 return redirect()
-                    ->route('user_profile_edit')
+                    ->route('auth_profile_edit')
                     ->withInput()
                     ->withErrors($validation);
             }
         }
-        return view('pages.users.profile_edit');
+        return view('pages.auth.profile_edit');
     }
 
     public function change_password(Request $request)
@@ -70,7 +70,10 @@ class UsersController extends Controller
                 'password'              => 'required|min:6|confirmed|different:current_password',
                 'password_confirmation' => 'required|required_with:password'
             );
-            $validation = Validator::make($request->all(), $rules);
+            $messages = [
+                'password.different' => 'Kata Sandi Saat Ini dan Kata Sandi Baru harus berbeda'
+            ];
+            $validation = Validator::make($request->all(), $rules, $messages);
             if ($validation->passes())
             {
                 if(Hash::check($request->input('current_password'), Auth::user()->password))
@@ -81,29 +84,28 @@ class UsersController extends Controller
                         ->update(
                             [
                                 'password'      => bcrypt($request->input('password')),
-                                'updated_by'    => Auth::user()->id,
-                                'updated_by_ip' => $_SERVER['REMOTE_ADDR']
+                                'updated_by'    => Auth::user()->id
                             ]);
                     return redirect()
-                        ->route('user_profile')
-                        ->with('alt_green', 'Data has been saved.');
+                        ->route('auth_change_password')
+                        ->with('alt_green', 'Data berhasil diubah.');
                 }else{
                     return redirect()
-                        ->route('user_change_password')
+                        ->route('auth_change_password')
                         ->withInput()
-                        ->with('alt_red', 'Current password not match.')
+                        ->with('alt_red', 'Kata Sandi Saat Ini tidak cocok.')
                         ->withErrors($validation);
                 }
 
 
             }else{
                 return redirect()
-                    ->route('user_change_password')
+                    ->route('auth_change_password')
                     ->withInput()
                     ->withErrors($validation);
             }
         }
-        return view('pages.backend.users.admin_change_password');
+        return view('pages.auth.change_password');
     }
 
 }
