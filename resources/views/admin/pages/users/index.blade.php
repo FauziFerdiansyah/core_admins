@@ -77,6 +77,7 @@
     <script type="text/javascript">
         var table;
         $(document).ready(function() {
+            
             table = $('#tables').DataTable({
                 responsive: false,
                 ajax: '{!! route('users.data') !!}',
@@ -109,14 +110,7 @@
                     
                 ]
             });
-            table.on('responsive-resize.dt', function(e, datatable, columns) {
-                columns.forEach(function(is_visible, index) {
-                    $.each($('tr', datatable.table().header()), function() {
-                        var col = $($(this).children()[index]);
-                        is_visible == true ? col.show() : col.hide();
-                    });
-                });
-            });
+            
         });
 
     </script>
