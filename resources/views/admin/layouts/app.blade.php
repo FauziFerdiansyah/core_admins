@@ -25,8 +25,8 @@
 
     <!-- Styles -->
     @include('admin.includes.css') {{-- Load css element --}} 
-    <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet">
     @yield('css')
+    <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet">
     
     <!-- Scripts -->
     <script>

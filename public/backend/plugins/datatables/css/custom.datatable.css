@@ -1,3 +1,6 @@
+table.dataTable {
+    border-collapse: collapse!important;
+}
 td.t_act {
     padding: 5px !important;
     position: relative;
