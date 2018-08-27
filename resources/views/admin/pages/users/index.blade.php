@@ -19,7 +19,7 @@
         <div class="card-header">
             <h5>Data Admin</h5>
             <div class="card-header-right btn-head">
-                <a href="{{ route('users.create') }}" class="btn waves-effect waves-light btn-primary btn-sm"><i class="ti-plus"></i> Tambah Admin Baru</a>
+                <a href="{{ route('users.create') }}" class="btn waves-effect waves-light btn-primary btn-sm"><i class="ti-plus"></i> Tambah User Baru</a>
             </div>
         </div>
         <div class="card-block">
