@@ -1,0 +1,63 @@
+td.t_act {
+    padding: 5px !important;
+    position: relative;
+}
+.btn-datatable-group {
+    display: block;
+}
+.dataTables_filter .form-control {
+    margin-right: 0px !important;
+}
+div.dataTables_wrapper div.dataTables_filter label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+div.dataTables_wrapper div.dataTables_filter label .t-t {
+    padding: 0px;
+}
+div.dataTables_wrapper div.dataTables_filter label .t-p {
+    top: 10px;
+    text-align: right;
+}
+div.dataTables_wrapper div.dataTables_filter input {
+    width: 100%;
+    margin-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/*DataTable Responsive*/
+table.dataTable>tbody>tr.child ul.dtr-details {
+    display: block;
+}
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.child {
+    padding: 0px;
+}
+table.dataTable>tbody>tr.child ul.dtr-details li {
+    padding: 10px 15px !important;
+}
+
+@media screen and (max-width: 767px) {
+    div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:first-child {
+        padding-right: 0;
+    }
+    div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-child {
+        padding-left: 0;
+    }
+    div.dataTables_wrapper div.dataTables_filter label {
+        margin-right: 0px;
+    }
+    div.dataTables_wrapper div.dataTables_filter label .t-p {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    div.dataTables_wrapper div.dataTables_filter label .t-t {
+        margin-left: 0px;
+    }
+}
